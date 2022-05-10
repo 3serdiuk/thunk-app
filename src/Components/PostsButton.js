@@ -2,13 +2,34 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getPosts } from '../actions/PostsButton.js';
 
-let style = {
-    backgroundColor: 'lightBlue',
-    padding: '5px 15px',
-    borderRadius: '5px',
+let divStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    fontamily: 'Dosis',
+    fontWeight: '500',
+    margin: '10px 10px',
+}
+
+let btnStyle = {
+    display: 'flex',
+    backgroundColor: '#229999',
+    padding: '15px 20px',
+    borderRadius: '50px',
     textTransform: 'uppercase',
     margin: '10px 10px',
     cursor: 'pointer',
+    fontWeight: '900',
+    fontSize: '1.17em',
+}
+
+let section = {
+    backgroundColor: '#afeeee',
+    padding: '5px 15px',
+    borderRadius: '10px',
+    marginBottom: '10px',
+    textTransform: 'upperCase',
 }
 
 class Btn extends React.Component {
@@ -18,18 +39,18 @@ class Btn extends React.Component {
             posts
         } = this.props;
 
-        return isLoading ? <h3>Loading...</h3> : (<>
-            <button onClick={this.props.getPosts} style={style}>Show posts</button>
+        return isLoading ? <h3>Loading...</h3> : (<div style={divStyle}>
+            <button onClick={this.props.getPosts} style={btnStyle}>Show posts</button>
            
             <div>
                 {posts.map((item) => (
-                    <div key={item.id}>
+                    <section style={section} key={item.id}>
                         <h3>{item.title}</h3>
                         <p>{item.body}</p>
-                    </div>)
+                    </section>)
                 )}
             </div>
-        </>);
+        </div>);
     }
 }
 
