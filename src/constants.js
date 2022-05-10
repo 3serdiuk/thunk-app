@@ -1,0 +1,3 @@
+export const POSTS_PENDING = "POSTS_PENDING";
+export const POSTS_RESOLVED = "POSTS_RESOLVED";
+export const POSTS_ERROR = "POSTS_ERROR";
